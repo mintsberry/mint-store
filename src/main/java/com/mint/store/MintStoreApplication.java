@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 /**
  * @author LingXi
  */
-
 @SpringBootApplication(exclude= {DataSourceAutoConfiguration.class})
 public class MintStoreApplication {
 
