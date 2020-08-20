@@ -1,5 +1,6 @@
 package com.mint.store.vo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,5 +18,4 @@ public class UnifyResponse {
   private int code;
   private String message;
   private String url;
-
 }
