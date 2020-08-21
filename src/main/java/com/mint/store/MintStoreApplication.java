@@ -8,7 +8,7 @@ import springfox.documentation.oas.annotations.EnableOpenApi;
 /**
  * @author LingXi
  */
-@SpringBootApplication(exclude= {DataSourceAutoConfiguration.class})
+@SpringBootApplication()
 @EnableOpenApi
 public class MintStoreApplication {
 
