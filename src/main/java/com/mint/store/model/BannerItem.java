@@ -1,22 +1,31 @@
 package com.mint.store.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import lombok.Data;
+
+import javax.persistence.*;
+import java.io.Serializable;
 
 /**
- * @author MintsBerry
- * @date 2020/8/21
+ * @author LingXi
  */
+@Data
 @Entity
-public class BannerItem {
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
-  private String img;
-  private String keyword;
-  private Short type;
-  private String name;
-  private Long bannerId;
+@Table(name = "banner_item")
+public class BannerItem  extends BaseEntity  implements Serializable {
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Integer id;
+
+	private String img;
+
+	private String keyword;
+
+	private Integer type;
+
+	@Column(name = "banner_id")
+	private Integer bannerId;
+
+	private String name;
+
 }
