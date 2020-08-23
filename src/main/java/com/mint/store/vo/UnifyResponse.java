@@ -1,10 +1,8 @@
 package com.mint.store.vo;
 
-import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.apache.ibatis.annotations.ConstructorArgs;
 
 /**
  * @author MintsBerry

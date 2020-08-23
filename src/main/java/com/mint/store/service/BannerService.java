@@ -7,5 +7,10 @@ import com.mint.store.model.Banner;
  * @date 2020/8/21
  */
 public interface BannerService {
+  /**
+   * 通过name查询
+   * @param name
+   * @return
+   */
   Banner getByName(String name);
 }
