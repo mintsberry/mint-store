@@ -9,12 +9,14 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * @author MintsBerry
@@ -50,5 +52,22 @@ public class GlobalExceptionAdvice {
     httpHeaders.setContentType(MediaType.APPLICATION_JSON);
     HttpStatus httpStatus = HttpStatus.resolve(httpException.getCodeStatus());
     return new ResponseEntity<UnifyResponse>(unifyResponse, httpHeaders, httpStatus);
+  }
+
+  @ExceptionHandler(MethodArgumentNotValidException.class)
+  @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+  public UnifyResponse argumentValidException(HttpServletRequest request, MethodArgumentNotValidException exception) {
+    int code = -1;
+    StringBuffer stringBuffer = new StringBuffer();
+    List<ObjectError> allErrors = exception.getBindingResult().getAllErrors();
+    allErrors.forEach(error -> {
+      String s = error.getDefaultMessage();
+      stringBuffer.append(s).append(",");
+    });
+    stringBuffer.deleteCharAt(stringBuffer.length() - 1);
+    String method = request.getMethod();
+    String url = method + " " + request.getRequestURI();
+    return new UnifyResponse(code, stringBuffer.toString(), url);
+
   }
 }

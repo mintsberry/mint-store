@@ -10,3 +10,10 @@ spring:
     show-sql: true
     properties:
       format-sql: true
+wx:
+  appid: wxcd2a517da90ce81f
+  secret: 31869c96988b67bb81aa5710e4b93f26
+  code2session: https://api.weixin.qq.com/sns/jscode2session?appid={0}&secret={1}&js_code={2}&grant_type=authorization_code
+jwt:
+  secret: mint-store
+  expired: 86400000
