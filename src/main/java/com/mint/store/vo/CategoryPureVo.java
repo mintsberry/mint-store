@@ -9,7 +9,7 @@ import org.springframework.beans.BeanUtils;
  * @date 2020/8/24
  */
 @Data
-public class CategoryPure {
+public class CategoryPureVo {
   private Long id;
 
   private String name;
@@ -28,7 +28,7 @@ public class CategoryPure {
 
   private Integer level;
 
-  public CategoryPure(Category category) {
+  public CategoryPureVo(Category category) {
     BeanUtils.copyProperties(category, this);
   }
 }

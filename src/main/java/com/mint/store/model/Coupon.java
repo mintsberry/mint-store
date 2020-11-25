@@ -26,7 +26,7 @@ public class Coupon extends BaseEntity {
   @Column(name = "activity_id")
   private long activityId;
   private String remark;
-  private long wholeStore;
+  private boolean wholeStore;
 
   @ManyToMany(fetch = FetchType.LAZY, mappedBy = "couponList")
   private List<Category> categoryList;

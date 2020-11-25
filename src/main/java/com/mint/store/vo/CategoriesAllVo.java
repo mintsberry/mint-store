@@ -13,14 +13,14 @@ import java.util.stream.Collectors;
  */
 @Data
 public class CategoriesAllVo {
-  private List<CategoryPure> roots;
-  private List<CategoryPure> subs;
+  private List<CategoryPureVo> roots;
+  private List<CategoryPureVo> subs;
 
 
   public CategoriesAllVo(Map<Integer, List<Category>> all) {
     List<Category> roots = all.get(0);
     List<Category> subs = all.get(1);
-    this.roots = roots.stream().map(CategoryPure::new).collect(Collectors.toList());
-    this.subs = subs.stream().map(CategoryPure::new).collect(Collectors.toList());
+    this.roots = roots.stream().map(CategoryPureVo::new).collect(Collectors.toList());
+    this.subs = subs.stream().map(CategoryPureVo::new).collect(Collectors.toList());
   }
 }
