@@ -7,7 +7,6 @@ import lombok.Data;
  * @date 2020/8/23
  */
 @Data
-//@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 public class Spec {
   private Long keyId;
   private String key;
