@@ -11,9 +11,9 @@ import javax.persistence.Table;
 /**
  * @author LingXi
  */
-@Data
 @Entity
 @Table(name = "user_coupon")
+@Data
 @Builder
 @NoArgsConstructor
 public class UserCoupon extends BaseEntity{
